@@ -1,0 +1,39 @@
+name: hitachi_exam
+description: "Hitachi Flutter Exam"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.12.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  url_launcher: ^6.3.1
+  carousel_slider: ^5.0.0
+  webview_flutter: ^4.10.0
+  google_fonts: ^6.2.1
+  cached_network_image: ^3.4.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+  flutter_native_splash: ^2.4.3
+
+flutter_native_splash:
+  # Plain white boot screen (no static logo) so the animated wave in the
+  # Flutter splash is the first branded thing shown at launch.
+  color: "#ffffff"
+  android_12:
+    color: "#ffffff"
+  android: true
+  ios: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
