@@ -122,6 +122,17 @@ flutter run \
 
 ## Build an APK for a mobile device
 
+### Prebuilt APK
+
+A ready-to-install release build is available in the repository:
+
+**[Download `release/hitachi-exam.apk`](release/hitachi-exam.apk)**
+
+Open that file on the GitHub page and click **Download**, then transfer it to
+your Android device and install (see [Install it on your phone](#install-it-on-your-phone)).
+
+### Build it yourself
+
 Build a release APK:
 
 ```bash
