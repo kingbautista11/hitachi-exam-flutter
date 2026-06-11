@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../theme.dart';
 
@@ -11,28 +12,22 @@ class LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = failed ? Colors.red : Brand.facebook;
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(
-            width: 34,
-            height: 34,
-            child: CircularProgressIndicator(
-              color: color,
-              strokeWidth: 3,
-              strokeCap: StrokeCap.round,
-            ),
+          CupertinoActivityIndicator(
+            radius: 14,
+            color: failed ? Colors.red : Brand.subtle,
           ),
-          const SizedBox(height: 22),
+          const SizedBox(height: 18),
           Text(
             label,
             style: TextStyle(
               color: failed ? Colors.red : Brand.subtle,
               fontSize: 14,
-              fontWeight: FontWeight.w600,
-              letterSpacing: 0.3,
+              fontWeight: FontWeight.w500,
+              letterSpacing: 0.2,
             ),
           ),
         ],
