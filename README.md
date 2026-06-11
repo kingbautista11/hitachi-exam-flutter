@@ -126,10 +126,15 @@ flutter run \
 
 A ready-to-install release build is available in the repository:
 
-**[Download `release/hitachi-exam.apk`](release/hitachi-exam.apk)**
+**[⬇ Download hitachi-exam.apk](https://github.com/kingbautista11/hitachi-exam-flutter/raw/main/release/hitachi-exam.apk)**
 
-Open that file on the GitHub page and click **Download**, then transfer it to
-your Android device and install (see [Install it on your phone](#install-it-on-your-phone)).
+This is a direct-download link that works on mobile. After downloading, open the
+file on your Android device and install it (see
+[Install it on your phone](#install-it-on-your-phone)).
+
+> If the repository is **private**, the download only works in a browser that is
+> signed in to a GitHub account with access. To share it freely, either make the
+> repo public or attach the APK to a GitHub **Release**.
 
 ### Build it yourself
 
