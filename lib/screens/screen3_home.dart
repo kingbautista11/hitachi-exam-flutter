@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../services/api_service.dart';
 import '../theme.dart';
 import '../widgets/loading_view.dart';
@@ -192,7 +193,7 @@ class _Screen3HomeState extends State<Screen3Home> {
               const SizedBox(width: gap),
               _gridTile(
                 color: Brand.orange,
-                icon: Icons.login,
+                svgAsset: 'assets/login_box.svg',
                 onTap: () {
                   Navigator.push(
                     context,
@@ -225,9 +226,26 @@ class _Screen3HomeState extends State<Screen3Home> {
   Widget _gridTile({
     required Color color,
     String? asset,
+    String? svgAsset,
     IconData? icon,
     required VoidCallback onTap,
   }) {
+    Widget child;
+    if (asset != null) {
+      child = Image.asset(asset, fit: BoxFit.cover);
+    } else if (svgAsset != null) {
+      child = Center(
+        child: SvgPicture.asset(
+          svgAsset,
+          width: 44,
+          height: 44,
+          colorFilter: const ColorFilter.mode(Colors.white, BlendMode.srcIn),
+        ),
+      );
+    } else {
+      child = Center(child: Icon(icon, color: Colors.white, size: 40));
+    }
+
     return Pressable(
       onTap: onTap,
       child: Container(
@@ -239,9 +257,7 @@ class _Screen3HomeState extends State<Screen3Home> {
           boxShadow: softShadow(y: 10, blur: 22, opacity: 0.22, color: color),
         ),
         clipBehavior: Clip.antiAlias,
-        child: asset != null
-            ? Image.asset(asset, fit: BoxFit.cover)
-            : Center(child: Icon(icon, color: Colors.white, size: 40)),
+        child: child,
       ),
     );
   }
