@@ -53,6 +53,23 @@ controls are in place (see [`SECURITY.md`](SECURITY.md) for full detail):
 - **Externalised configuration** — the API client id and base URL are injected
   at build time with `--dart-define` rather than hardcoded in source.
 
+## Performance
+
+The app is built for fast startup and smooth navigation:
+
+- **Ahead-of-time (release) builds** — release APKs are AOT-compiled with debug
+  asserts stripped, the largest factor in real-device performance.
+- **Cached network images** — the user avatar and brand banners use
+  `cached_network_image`, so they load from disk on repeat views instead of
+  re-downloading.
+- **Isolated animations** — the splash wave is wrapped in a `RepaintBoundary`
+  so its per-frame repaints don't dirty the rest of the screen.
+- **Icon tree-shaking** — unused Material icon glyphs are stripped at build time
+  (~99% font-asset reduction).
+- **Const-heavy widget tree** — widgets are `const` wherever possible to
+  minimize rebuilds, and pure logic (validation, parsing) is kept out of the
+  build path.
+
 ## Getting started
 
 ### Prerequisites
